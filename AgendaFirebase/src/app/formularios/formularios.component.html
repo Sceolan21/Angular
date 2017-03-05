@@ -1,0 +1,25 @@
+<div id="alta-personas">
+
+<form>
+  <label>Nombre</label>
+  <input type="text" name="nombre" [(ngModel)]="persona.nombre">
+  {{persona.nombre}}
+  <label>Apellidos</label>
+  <input type="text" name="apellidos" [(ngModel)]="persona.apellidos">
+  {{persona.apellidos}}
+  <label>Telefono</label>
+  <input type="text" name="telefono" [(ngModel)]="persona.telefono">
+  {{persona.telefono}}
+  <label>Sexo</label>
+  M:<input type="radio" name="sexo" value="M" [(ngModel)]="persona.sexo"> 
+  F:<input type="radio" name="sexo" value="F" [(ngModel)]="persona.sexo">
+  {{persona.sexo}}
+  <div *ngFor="let aficion of persona.aficiones">
+    {{aficion.value}}
+    <input type="checkbox" name="aficiones" [(ngModel)]="aficion.selected">
+  </div>
+  <button (click)="insertarPersona()">Añadir Persona</button>
+  <button (click)="limpiarPersona()">Limpiar Formulario</button>
+</form>
+
+</div>

@@ -1,3 +1,54 @@
-<h1>
-  {{title}}
+<h1 class="text-center">
+  {{titulo}}
 </h1>
+<br><br>
+<div id="mostrarClasificacion" class="text-center" (load)="mostrarEquipos()">
+    <table class=" table table-bordered table-hover text-center">
+        <tr>
+            <th class="text-center">Posicion</th>
+            <th class="text-center">Equipo</th>
+            <th class="text-center">Puntos</th>
+            <th class="text-center">Borrar</th>
+        </tr>
+        <tr *ngFor="let equipos of clasificacion">
+            <td>{{equipos.posicion}}</td>
+            <td>{{equipos.nombre}}</td>
+            <td>{{equipos.puntos}}</td>
+            <td><button class="btn btn-danger" (click)="borrarEquipos(equipos.id)">Borrar</button></td>
+        </tr>
+    </table>
+    <br><br>
+</div>
+<button type="button" class="btn btn-success" (click)="mostrarEquipos()">Mostrar Clasificacion</button> 
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Crear Equipo</button>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Crear Equipo</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>Clasificacion</label>
+                    <input type="number" name="posicion" [(ngModel)]="posicion">
+                    <br>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" [(ngModel)]="nombre">
+                    <br>
+                    <label>Puntos</label>
+                    <input type="number" name="puntos" [(ngModel)]="puntos">
+                    <br>
+                    <button type="button" class="btn btn-success" (click)="insertarEquipos()">Añadir Equipo</button> 
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

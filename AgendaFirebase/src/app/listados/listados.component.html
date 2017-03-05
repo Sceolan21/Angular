@@ -1,0 +1,8 @@
+<div id="listado-personas">
+  <ul>
+    <li *ngFor="let persona of agenda">
+      {{persona.nombre}} {{persona.apellidos}} 
+      <button (click)="EliminarPersona(persona)">Borrar</button>
+    </li>
+  </ul>
+</div>
